@@ -1,0 +1,17 @@
+{
+  "d_model": 512,
+  "n_heads": 8,
+  "n_layers": 6,
+  "d_k": 64,
+  "d_v": 64,
+  "d_ff": 2048,
+  "dropout": 0.1,
+  "padding_idx": 0,
+  "src_vocab_size": 32000,
+  "tgt_vocab_size": 32000,
+  "max_seq_length": 50,
+  "batch_size": 128,
+  "lr": 3e-4,
+  "share_enc_dec_weights": false,
+  "share_dec_proj_weights": true
+}
