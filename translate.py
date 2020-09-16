@@ -2,7 +2,6 @@ from argparse import ArgumentParser
 from trainer import Transformer_pl
 from utils import Config
 
-
 def main(args):
     config = Config.load("./config.json")
     model = Transformer_pl(config).load_from_checkpoint(args.model_saved_path)
@@ -21,5 +20,3 @@ if __name__ == "__main__":
     parser.add_argument('--model_saved_path', type=str, default="./model_saved/epoch=25-val_loss=1.3987.ckpt")
     args = parser.parse_args()
     main(args)
-
-
