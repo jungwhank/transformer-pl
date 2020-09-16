@@ -28,8 +28,10 @@ class Transformer_pl(pl.LightningModule):
     def translate(self, input_sentence):
         self.eval()
         input_ids = self.sp_kor.EncodeAsIds(input_sentence)
-        if len(input_ids) < self.hparams['max_seq_length']:
+        if len(input_ids) <= self.hparams['max_seq_length']:
             input_ids = input_ids + [self.hparams['padding_idx']]*(self.hparams['max_seq_length'] - len(input_ids))
+        if len(input_ids) > self.hparams['max_seq_length']:
+            input_ids = input_ids[:self.hparams['max_seq_length']]
         input_ids = torch.tensor([input_ids])
 
         enc_outputs, _ = self.transformer.encode(input_ids)
@@ -46,7 +48,7 @@ class Transformer_pl(pl.LightningModule):
 
         output_sent = self.sp_eng.DecodeIds(target_ids[0].tolist())
         return output_sent
-
+        
     # ---------------------
     # TRAINING AND EVALUATION
     # ---------------------
@@ -124,6 +126,3 @@ class Transformer_pl(pl.LightningModule):
                                   sort_key=lambda x: len(x.kor),
                                   sort_within_batch=False)
         return val_iter
-
-
-
