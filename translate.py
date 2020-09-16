@@ -6,9 +6,9 @@ def main(args):
     config = Config.load("./config.json")
     model = Transformer_pl(config).load_from_checkpoint(args.model_saved_path)
 
-    print("종료를 원하시면 EXIT를 입력하세요")
+    print("Enter QUIT for quit")
     input_kor = input("kor : ")
-    while input_kor != "EXIT":
+    while input_kor != "QUIT":
         print("eng : ", model.translate(input_kor))
         input_kor = input("kor : ")
 
@@ -16,7 +16,8 @@ def main(args):
 if __name__ == "__main__":
     parser = ArgumentParser()
 
-    # Training
-    parser.add_argument('--model_saved_path', type=str, default="./model_saved/epoch=25-val_loss=1.3987.ckpt")
+    # Set path
+    parser.add_argument('--model_saved_path', type=str, default="./model_saved/set/your/checkpoint")
     args = parser.parse_args()
+
     main(args)
