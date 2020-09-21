@@ -16,13 +16,13 @@ torch>=1.5.0
 
 
 ## Dataset
-For this project, I used 1,100,000 sentences from [AI HUB Korean-English AI Training Text Corpus](https://aihub.or.kr/aidata/87) .
+For this project, I used 1,100,000 sentences from [AI HUB Korean-English AI Training Text Corpus](https://aihub.or.kr/aidata/87).
 
 | DATASET | SENTENCES |
-| ------- | :-------: |
-| TRAIN   | 1,000,000 |
-| VALID   |   5,000   |
-| TEST    |   5,000   |
+| :-----: | :-------: |
+|  TRAIN  | 1,000,000 |
+|  VALID  |   5,000   |
+|  TEST   |   5,000   |
 
 To use [torchtext](https://github.com/pytorch/text) and this repo, please check the `sample.tsv` in `./data` folder for data format.
 
